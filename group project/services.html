@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Programs — FitBalance</title>
-  <meta name="description" content="FitBalance training programs: yoga, mobility, pilates and strength & fitness, plus our weekly class schedule.">
+  <meta name="description" content="FitBalance training programs: yoga, mobility, pilates, strength, open gym and recovery, plus our weekly class schedule.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -13,17 +13,18 @@
 </head>
 <body>
 
-  <header>
-    <div class="container nav-container">
-      <a href="index.html" class="logo">Fit<span>Balance</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Main</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html" class="active">About Us</a></li>
-        <li><a href="contact.html">Contacts</a></li>
-      </ul>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="index.html">FitBalance</a>
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="main-nav__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html" aria-current="page">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </header>
   </header>
 
   <main>
@@ -31,11 +32,11 @@
     <section class="page-intro">
       <div class="page-intro__inner">
         <p class="eyebrow">Training programs</p>
-        <h1>Four programs, one studio.</h1>
+        <h1>Six programs, one studio.</h1>
         <p class="page-intro__lede">
-          Each program is led by one coach who specializes in it — no rotating
-          instructors, no generic plans. Pick the one that matches your goal
-          this week.
+          Four are led by a coach who specializes in it, and two are open studio
+          time for whenever your schedule needs flexibility — no rotating
+          instructors, no generic plans.
         </p>
       </div>
     </section>
@@ -43,7 +44,7 @@
     <section class="catalog" aria-label="Program catalog">
       <div class="catalog__grid">
 
-        <article class="card" data-category="yoga">
+        <article class="card">
           <h2>Hatha Yoga & Breathwork</h2>
           <p class="card__coach">Aruzhan Kakimzhanova · Yoga instructor</p>
           <p>Hatha yoga, breathing practices and meditation techniques for flexibility and stress relief.</p>
@@ -53,7 +54,7 @@
           </ul>
         </article>
 
-        <article class="card" data-category="mobility">
+        <article class="card">
           <h2>Mobility & Functional Training</h2>
           <p class="card__coach">Dayankhan Amanzhol · Mobility Coach</p>
           <p>Outdoor functional training, body mobility, and dynamic group workouts.</p>
@@ -63,7 +64,7 @@
           </ul>
         </article>
 
-        <article class="card" data-category="pilates">
+        <article class="card">
           <h2>Pilates</h2>
           <p class="card__coach">Akbope Altynbekova · Pilates coach</p>
           <p>Posture alignment, spine health, and deep core muscle strengthening.</p>
@@ -73,13 +74,33 @@
           </ul>
         </article>
 
-        <article class="card" data-category="strength">
+        <article class="card">
           <h2>Strength & Fitness</h2>
           <p class="card__coach">Sofiya Mishanova · Strength and fitness coach</p>
           <p>Functional strength workouts, muscle toning classes, and physical endurance training.</p>
           <ul class="card__meta">
             <li>50 min · small groups</li>
             <li>Beginner–intermediate</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Open Gym Access</h2>
+          <p class="card__coach">No instructor required</p>
+          <p>Full access to the training floor and equipment outside class hours, for members who prefer to train on their own schedule.</p>
+          <ul class="card__meta">
+            <li>Self-guided · studio floor</li>
+            <li>Included with membership</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Recovery & Stretch</h2>
+          <p class="card__coach">Rotating studio coaches</p>
+          <p>A slow, guided cooldown session — stretching, foam rolling and breathing to close out a hard training week.</p>
+          <ul class="card__meta">
+            <li>30 min · all levels</li>
+            <li>Great after Strength or Mobility</li>
           </ul>
         </article>
 
@@ -141,7 +162,7 @@
               <td>Strength</td>
               <td>Yoga</td>
               <td>Pilates</td>
-              <td>—</td>
+              <td>Recovery</td>
             </tr>
           </tbody>
         </table>
@@ -151,31 +172,26 @@
   </main>
 
   <footer class="site-footer">
-  <div class="site-footer__inner">
-    <div class="footer-col">
-      <div class="logo">FitBalance</div>
-      <p>Balanced training, Astana.</p>
-    </div>
-
-    <div class="footer-col">
-      <nav class="footer-nav">
-        <li><a href="index.html">Main</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html" class="active">About Us</a></li>
-        <li><a href="contact.html">Contacts</a></li>
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <p class="logo">FitBalance</p>
+        <p>Balanced training, Astana.</p>
+      </div>
+      <nav class="site-footer__nav" aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </nav>
+      <div class="site-footer__hours">
+        <p>Mon–Fri: 6:00–23:00</p>
+        <p>Sat–Sun: 8:00–22:00</p>
+      </div>
     </div>
-
-    <div class="footer-col">
-      <p>Mon–Fri: 6:00–23:00</p>
-      <p>Sat–Sun: 8:00–22:00</p>
-    </div>
-
-    <div class="footer-col">
-      <p>Group: MT-2506</p>
-    </div>
-  </div>
-</footer>
+    <p class="site-footer__copy">Group: MT-2506</p>
+  </footer>
 
 </body>
 </html>
