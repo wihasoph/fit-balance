@@ -1,148 +1,24 @@
-@media (max-width: 992px) {
-  main .grid,
-  .catalog__grid,
-  .grid,
-  .trainers-grid,
-  .programs-grid,
-  .grid-gallery,
-  .faq-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px;
-  }
 
-  .hero-grid,
-  .about-content,
-  .flex-contact-container,
-  .cta-content {
-    flex-direction: column !important;
-    gap: 24px;
-  }
-
-  .about-image,
-  .hero-grid > div {
-    width: 100% !important;
-    flex: none !important;
-  }
-}
-
-@media (max-width: 600px) {
-  html, body {
-    overflow-x: hidden !important;
-    max-width: 100vw;
-  }
-
-  .container, main {
-    padding: 0 16px !important;
-  }
-
-  header {
-    padding: 12px 0 !important;
-  }
-
-  .nav-container,
+@media (min-width: 48rem) {
   .site-header__inner {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 12px !important;
-    width: 100% !important;
-  }
-
-  .nav-links,
-  .main-nav__list {
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 8px 14px !important;
-    width: 100% !important;
-    padding: 0 !important;
-  }
-
-  .nav-links a,
-  .main-nav__list a {
-    font-size: 0.85rem !important;
-  }
-
-  .hero-grid,
-  .about-content {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 20px !important;
-    width: 100% !important;
-  }
-
-  .hero-grid > div,
-  .about-text,
-  .about-image {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  h1, .page-intro h1 {
-    font-size: 1.6rem !important;
-    line-height: 1.25 !important;
-  }
-
-  h2, .schedule__intro h2 {
-    font-size: 1.35rem !important;
-  }
-
-  main .grid,
-  .catalog__grid,
-  .grid,
-  .trainers-grid,
-  .programs-grid,
-  .grid-gallery,
-  .faq-grid,
-  .stats-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-
-  .stats-grid .stat-number {
-    font-size: 2.2rem !important;
-  }
-
-  .stats-grid .card,
-  .stats-grid > div {
-    padding: 20px 12px !important;
-    min-height: auto !important;
-  }
-
-  .schedule__scroll {
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
-    margin: 0 -16px !important;
-    border-radius: 0 !important;
-    border-left: none !important;
-    border-right: none !important;
-  }
-
-  .schedule__grid {
-    min-width: 500px !important;
-  }
-
-  .form-row {
-    flex-direction: column !important;
-    gap: 12px !important;
-  }
-
-  .btn, .btn-submit {
-    width: 100% !important;
-    text-align: center !important;
-    box-sizing: border-box !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .site-footer__inner {
-    flex-direction: column !important;
-    gap: 20px !important;
-    text-align: center !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .site-footer__brand,
-  .site-footer__nav,
-  .site-footer__hours,
-  .site-footer__info {
-    align-items: center !important;
+  .catalog__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+@media (min-width: 64rem) {
+  .catalog__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
