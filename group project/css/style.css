@@ -269,6 +269,58 @@ header {
   text-align: center;
 }
 
+.home-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.home-stat {
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 24px 20px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+}
+
+.home-stat .stat-number {
+  margin-bottom: 6px;
+  color: var(--primary-green);
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.home-stat p:last-child {
+  color: var(--muted-text);
+}
+
+.home-features-grid,
+.home-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.home-service-card .btn {
+  align-self: flex-start;
+}
+
+.text-link {
+  color: var(--primary-green-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.text-link:hover,
+.text-link:focus {
+  text-decoration: underline;
+}
+
 .stats-grid .card,
 .stats-grid > div {
   background: var(--white);
@@ -505,6 +557,12 @@ header {
 
 .info-card {
   border-top: 6px solid var(--primary-green);
+}
+
+.info-card .section-desc,
+.form-card .section-desc {
+  margin-left: 0 !important;
+  text-align: left !important;
 }
 
 .form-card {
