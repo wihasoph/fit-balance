@@ -13,7 +13,6 @@
   --accent-pink-deep: #e799ab;
 
   --space-xs: 0.5rem;
-  --space-sm: 1rem;
   --space-md: 1.5rem;
   --space-lg: 2rem;
   --space-xl: 3rem;
@@ -207,7 +206,6 @@ header {
   background: rgba(92, 117, 97, 0.09);
 }
 
-main .grid,
 .catalog__grid,
 .grid,
 .trainers-grid,
@@ -239,7 +237,7 @@ main .grid,
   flex: 1;
 }
 
-.hero-grid > div:last-child {
+.hero-grid > div:last-child:not(.banner) {
   background: var(--white);
   padding: 25px;
   border-radius: var(--radius-md);
@@ -249,17 +247,14 @@ main .grid,
 
 .about-content {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 30px;
+  margin: 30px 0;
 }
 
 .about-text {
   flex: 1;
   text-align: left;
-}
-
-.about-image {
-  flex: 0 0 350px;
 }
 
 .stats-grid {
@@ -339,7 +334,7 @@ main .grid,
   color: var(--muted-text);
 }
 
-.card img, .img {
+.card img {
   width: 100%;
   height: 220px;
   object-fit: cover;
@@ -748,12 +743,7 @@ textarea {
 }
 
 .banner {
-  background: none;
-  background-color: transparent;
-  padding: 0;
-  border: none;
-  box-shadow: none;
-  margin: 20px 0 30px 0;
+  margin: 20px 0 30px;
   width: 100%;
   min-width: 0;
   aspect-ratio: 3 / 2;
@@ -761,31 +751,11 @@ textarea {
   border-radius: var(--radius-md);
 }
 
-.hero-grid > div.banner {
-  background: none;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  text-align: initial;
-}
-
 .banner img,
 .about-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  border: 0;
-  border-radius: var(--radius-md);
-  display: block;
-  margin-bottom: 0;
-}
-
-.about-content {
-  display: flex;
-  align-items: flex-start;
-  gap: 30px;
-  margin: 30px 0;
 }
 
 .about-image {
