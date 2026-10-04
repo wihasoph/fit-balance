@@ -12,12 +12,14 @@
   <header>
     <div class="container nav-container">
       <a href="index.html" class="logo">Fit<span>Balance</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Main</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html" class="active">About Us</a></li>
-        <li><a href="contact.html">Contacts</a></li>
-      </ul>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Main</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
+          <li><a href="contact.html">Contacts</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
@@ -28,7 +30,7 @@
         <p>FitBalance was founded in 2025 to make physical training an enjoyable, accessible habit for everyone.</p>
       </div>
       <div class="card">
-        <h3>Studio features</h3>
+        <h2>Studio features</h2>
         <ul>
           <li>Spacious rooms with natural light</li>
           <li>Small groups for real progress</li>
@@ -90,32 +92,29 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner container">
-      <div class="site-footer__brand">
-        <div class="logo">FitBalance</div>
-        <p>Balanced training, Astana.</p>
-      </div>
-
-      <div class="site-footer__nav">
-        <ul class="nav-links">
-          <li><a href="index.html">Main</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html" class="active">About Us</a></li>
-          <li><a href="contact.html">Contacts</a></li>
-        </ul>
-      </div>
-
-      <div class="site-footer__hours">
-        <p>Mon–Fri: 06:00–23:00</p>
-        <p>Sat–Sun: 8:00–22:00</p>
-      </div>
-
-      <div class="site-footer__info">
-        <p>Group: MT-2506</p>
-      </div>
+ <footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <a href="index.html" class="logo">FitBalance</a>
+      <p>Balanced training, Astana.</p>
     </div>
-  </footer>
 
+    <nav class="site-footer__nav" aria-label="Footer Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-footer__hours">
+      <p>Mon–Fri: 6:00–23:00</p>
+      <p>Sat–Sun: 8:00–22:00</p>
+    </div>
+  </div>
+
+  <p class="site-footer__copy">&copy; MT-2506 </p>
+</footer>
 </body>
 </html>

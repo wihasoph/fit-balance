@@ -1,3 +1,18 @@
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.grid > *,
+.catalog__grid > *,
+.trainers-grid > *,
+.programs-grid > *,
+.grid-gallery > *,
+.faq-grid > *,
+.stats-grid > * {
+  min-width: 0;
+}
+
 @media (max-width: 992px) {
   main .grid,
   .catalog__grid,
@@ -5,8 +20,9 @@
   .trainers-grid,
   .programs-grid,
   .grid-gallery,
-  .faq-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+  .faq-grid,
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
   }
 
@@ -14,76 +30,69 @@
   .about-content,
   .flex-contact-container,
   .cta-content {
-    flex-direction: column !important;
+    flex-direction: column;
+    align-items: stretch;
     gap: 24px;
   }
 
-  .about-image,
-  .hero-grid > div {
-    width: 100% !important;
-    flex: none !important;
+  .hero-grid > div,
+  .about-image {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex: 1 1 auto;
   }
 }
 
 @media (max-width: 600px) {
-  html, body {
-    overflow-x: hidden !important;
-    max-width: 100vw;
-  }
-
-  .container, main {
-    padding: 0 16px !important;
+  .container,
+  main {
+    padding-inline: 16px;
   }
 
   header {
-    padding: 12px 0 !important;
+    padding: 12px 0;
   }
 
   .nav-container,
   .site-header__inner {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 12px !important;
-    width: 100% !important;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
 
   .nav-links,
   .main-nav__list {
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 8px 14px !important;
-    width: 100% !important;
-    padding: 0 !important;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 14px;
   }
 
   .nav-links a,
   .main-nav__list a {
-    font-size: 0.85rem !important;
+    font-size: 0.85rem;
   }
 
   .hero-grid,
   .about-content {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 20px !important;
-    width: 100% !important;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
   }
 
   .hero-grid > div,
   .about-text,
   .about-image {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
-  h1, .page-intro h1 {
-    font-size: 1.6rem !important;
-    line-height: 1.25 !important;
-  }
-
-  h2, .schedule__intro h2 {
-    font-size: 1.35rem !important;
+  h2,
+  .schedule__intro h2 {
+    font-size: 1.35rem;
   }
 
   main .grid,
@@ -94,54 +103,54 @@
   .grid-gallery,
   .faq-grid,
   .stats-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
   }
 
   .stats-grid .stat-number {
-    font-size: 2.2rem !important;
+    font-size: 2.2rem;
   }
 
   .stats-grid .card,
   .stats-grid > div {
-    padding: 20px 12px !important;
-    min-height: auto !important;
+    min-height: auto;
+    padding: 20px 12px;
   }
 
   .schedule__scroll {
-    overflow-x: auto !important;
+    margin-inline: -16px;
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    margin: 0 -16px !important;
-    border-radius: 0 !important;
-    border-left: none !important;
-    border-right: none !important;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
   }
 
   .schedule__grid {
-    min-width: 500px !important;
+    min-width: 500px;
   }
 
   .form-row {
-    flex-direction: column !important;
-    gap: 12px !important;
+    flex-direction: column;
+    gap: 12px;
   }
 
-  .btn, .btn-submit {
-    width: 100% !important;
-    text-align: center !important;
-    box-sizing: border-box !important;
+  .btn,
+  .btn-submit {
+    width: 100%;
+    text-align: center;
   }
 
   .site-footer__inner {
-    flex-direction: column !important;
-    gap: 20px !important;
-    text-align: center !important;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
   }
 
   .site-footer__brand,
   .site-footer__nav,
   .site-footer__hours,
   .site-footer__info {
-    align-items: center !important;
+    align-items: center;
   }
 }

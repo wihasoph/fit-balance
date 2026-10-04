@@ -12,12 +12,14 @@
   <header>
     <div class="container nav-container">
       <a href="index.html" class="logo">Fit<span>Balance</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Main</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contacts</a></li>
-      </ul>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Main</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contacts</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
@@ -25,13 +27,15 @@
 
     <section class="hero-grid">
       <div>
-        <p class="hero-label">FITNESS · HEALTH · ENERGY</p>
-        <h1>Train Stronger.<br>Live Better.</h1>
-        <p>Welcome to FitBalance Fitness Club. Improve your strength, fitness and confidence with professional training and a supportive community.</p>
-        <div style="margin-top: 15px;">
-          <a href="services.html" class="btn btn-primary">View Programs</a>
-          <a href="contact.html" class="btn btn-secondary">Join Us</a>
-        </div>
+        <article>
+          <p class="hero-label">FITNESS · HEALTH · ENERGY</p>
+          <h1>Train Stronger.<br>Live Better.</h1>
+          <p>Welcome to FitBalance Fitness Club. Improve your strength, fitness and confidence with professional training and a supportive community.</p>
+          <div style="margin-top: 15px;">
+            <a href="services.html" class="btn btn-primary">View Programs</a>
+            <a href="contact.html" class="btn btn-secondary">Join Us</a>
+          </div>
+        </article>
       </div>
       
      <div class="banner">
@@ -82,31 +86,28 @@
 
   <footer class="site-footer">
   <div class="site-footer__inner">
-    <div class="footer-col">
-      <div class="logo">FitBalance</div>
+    <div class="site-footer__brand">
+      <a href="index.html" class="logo">FitBalance</a>
       <p>Balanced training, Astana.</p>
     </div>
 
-    <div class="footer-col">
-      <nav class="footer-nav">
-        <li><a href="index.html">Main</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html" class="active">About Us</a></li>
-        <li><a href="contact.html">Contacts</a></li>
-      </nav>
-    </div>
+    <nav class="site-footer__nav" aria-label="Footer Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
 
-    <div class="footer-col">
+    <div class="site-footer__hours">
       <p>Mon–Fri: 6:00–23:00</p>
       <p>Sat–Sun: 8:00–22:00</p>
     </div>
-
-    <div class="footer-col">
-      <p>Group: MT-2506</p>
-    </div>
   </div>
-</footer>
 
+  <p class="site-footer__copy">&copy; MT-2506 </p>
+</footer>
 
 </body>
 </html>

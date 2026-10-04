@@ -16,14 +16,15 @@
   <header>
     <div class="container nav-container">
       <a href="index.html" class="logo">Fit<span>Balance</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Main</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html" class="active">About Us</a></li>
-        <li><a href="contact.html">Contacts</a></li>
-      </ul>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Main</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contacts</a></li>
+        </ul>
+      </nav>
     </div>
-  </header>
   </header>
 
   <main>
@@ -31,7 +32,7 @@
     <section class="page-intro">
       <div class="page-intro__inner">
         <p class="eyebrow">Training programs</p>
-        <h1>Four programs, one studio.</h1>
+        <h1>Six programs, one studio.</h1>
         <p class="page-intro__lede">
           Each program is led by one coach who specializes in it — no rotating
           instructors, no generic plans. Pick the one that matches your goal
@@ -80,6 +81,26 @@
           <ul class="card__meta">
             <li>50 min · small groups</li>
             <li>Beginner–intermediate</li>
+          </ul>
+        </article>
+
+        <article class="card" data-category="personal-training">
+          <h2>Personal Training</h2>
+          <p class="card__coach">One-to-one coaching</p>
+          <p>Individual guidance and a workout plan tailored to your goals and experience.</p>
+          <ul class="card__meta">
+            <li>50 min · all levels</li>
+            <li>Personalized pace</li>
+          </ul>
+        </article>
+
+        <article class="card" data-category="recovery">
+          <h2>Recovery & Mobility</h2>
+          <p class="card__coach">Coach-led mobility session</p>
+          <p>Gentle movement and focused stretching to support flexibility and recovery.</p>
+          <ul class="card__meta">
+            <li>40 min · all levels</li>
+            <li>Bring comfortable clothing</li>
           </ul>
         </article>
 
@@ -152,29 +173,27 @@
 
   <footer class="site-footer">
   <div class="site-footer__inner">
-    <div class="footer-col">
-      <div class="logo">FitBalance</div>
+    <div class="site-footer__brand">
+      <a href="index.html" class="logo">FitBalance</a>
       <p>Balanced training, Astana.</p>
     </div>
 
-    <div class="footer-col">
-      <nav class="footer-nav">
-        <li><a href="index.html">Main</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html" class="active">About Us</a></li>
-        <li><a href="contact.html">Contacts</a></li>
-      </nav>
-    </div>
+    <nav class="site-footer__nav" aria-label="Footer Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
 
-    <div class="footer-col">
+    <div class="site-footer__hours">
       <p>Mon–Fri: 6:00–23:00</p>
       <p>Sat–Sun: 8:00–22:00</p>
     </div>
-
-    <div class="footer-col">
-      <p>Group: MT-2506</p>
-    </div>
   </div>
+
+  <p class="site-footer__copy">&copy; MT-2506 </p>
 </footer>
 
 </body>
