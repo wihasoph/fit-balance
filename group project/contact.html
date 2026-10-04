@@ -146,8 +146,11 @@
                 <article class="card form-card">
                     <h2>Book a Trial Session</h2>
                     <p class="section-desc">Fill out the form below and we will get back to you shortly</p>
+                    <p id="demo-note" class="demo-note">
+                        Demo form only. Your information is not sent or stored.
+                    </p>
 
-                    <form action="demo-result.html" method="post" class="booking-form" onsubmit="event.preventDefault(); window.location.assign(this.action);">
+                    <form action="demo-result.html" method="get" class="booking-form">
                         
                         <div class="form-group">
                             <label for="fullname">Full Name</label>
