@@ -79,6 +79,191 @@ h2 {
   text-align: center;
 }
 
+.home-contact-section {
+  margin: 48px auto;
+}
+
+.contact-form-card,
+.registration-card,
+.about-story {
+  padding: clamp(20px, 4vw, 40px);
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.contact-form-card {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.home-contact-section .section-heading {
+  margin-top: 0;
+}
+
+.home-contact-section .form-control {
+  border-color: var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+}
+
+.home-contact-section .form-control:focus {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 0.2rem rgba(92, 117, 97, 0.18);
+}
+
+.contact-submit {
+  margin-top: 1.25rem;
+}
+
+.form-submit-status,
+.registration-status {
+  margin: 1rem 0 0;
+  padding: 0.85rem 1rem;
+  color: var(--primary-green-dark);
+  background: rgba(92, 117, 97, 0.1);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.registration-section {
+  max-width: 900px;
+  margin: 3rem auto;
+}
+
+.registration-card > .section-label {
+  text-align: center;
+}
+
+.registration-card > h2,
+.registration-card > .section-desc {
+  text-align: center;
+}
+
+.registration-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.registration-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.registration-form .form-group > label,
+.registration-options legend {
+  font-weight: 600;
+}
+
+.registration-form .form-group input,
+.registration-form .form-group select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.7rem 0.85rem;
+  color: var(--dark-text);
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font: inherit;
+}
+
+.registration-form .form-group input:focus,
+.registration-form .form-group select:focus {
+  outline: 3px solid rgba(92, 117, 97, 0.2);
+  border-color: var(--primary-green);
+}
+
+.registration-form.was-validated input:invalid,
+.registration-form.was-validated select:invalid {
+  border-color: #b02a37;
+}
+
+.registration-form.was-validated input:valid,
+.registration-form.was-validated select:valid {
+  border-color: var(--primary-green);
+}
+
+.registration-error {
+  display: none;
+  color: #b02a37;
+  font-size: 0.875rem;
+}
+
+.registration-form.was-validated input:invalid ~ .registration-error,
+.registration-form.was-validated select:invalid ~ .registration-error {
+  display: block;
+}
+
+.registration-help,
+.optional-label {
+  color: var(--muted-text);
+  font-size: 0.9rem;
+}
+
+.registration-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin: 1.25rem 0;
+  border: 0;
+}
+
+.registration-options legend {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.registration-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.registration-options input {
+  accent-color: var(--primary-green);
+}
+
+.registration-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.registration-actions .btn {
+  margin-top: 0;
+  cursor: pointer;
+}
+
+.about-story {
+  max-width: 900px;
+  margin: 3rem auto;
+}
+
+.about-story .section-label,
+.about-story h2 {
+  text-align: center;
+}
+
+.about-story p:not(.section-label) {
+  max-width: 760px;
+  margin: 0.75rem auto;
+  color: var(--muted-text);
+}
+
+@media (max-width: 600px) {
+  .registration-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .registration-actions {
+    flex-direction: column;
+  }
+}
+
 .active, .logo span, .stat-number, .hero-number, .hero-label, .section-label {
   color: var(--primary-green);
 }

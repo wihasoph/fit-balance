@@ -169,6 +169,74 @@
       </div>
     </section>
 
+    <section class="registration-section" aria-labelledby="registration-title">
+      <div class="registration-card">
+        <p class="section-label">START YOUR JOURNEY</p>
+        <h2 id="registration-title">Register for FitBalance</h2>
+        <p class="section-desc">Tell us a little about yourself and we will help you find the right program.</p>
+
+        <form id="registration-form" class="registration-form" novalidate>
+          <div class="registration-grid">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input id="first-name" name="firstName" type="text" minlength="2" autocomplete="given-name" required>
+              <span class="registration-error">Enter at least 2 characters for your first name.</span>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input id="last-name" name="lastName" type="text" minlength="2" autocomplete="family-name" required>
+              <span class="registration-error">Enter at least 2 characters for your last name.</span>
+            </div>
+            <div class="form-group">
+              <label for="registration-email">Email</label>
+              <input id="registration-email" name="email" type="email" autocomplete="email" required>
+              <span class="registration-error">Enter a valid email address.</span>
+            </div>
+            <div class="form-group">
+              <label for="country">Country <span aria-hidden="true">*</span></label>
+              <select id="country" name="country" required>
+                <option value="" selected disabled>Select your country</option>
+                <option value="kazakhstan">Kazakhstan</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="registration-error">Please select a country.</span>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" minlength="8" autocomplete="new-password" required aria-describedby="password-help">
+              <span id="password-help" class="registration-help">Use at least 8 characters.</span>
+              <span class="registration-error">Password must contain at least 8 characters.</span>
+            </div>
+            <div class="form-group">
+              <label for="confirm-password">Confirm Password</label>
+              <input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" required>
+              <span class="registration-error">Passwords must match.</span>
+            </div>
+          </div>
+
+          <fieldset class="registration-options">
+            <legend>Gender <span class="optional-label">(optional)</span></legend>
+            <label><input type="radio" name="gender" value="female"> Female</label>
+            <label><input type="radio" name="gender" value="male"> Male</label>
+            <label><input type="radio" name="gender" value="prefer-not-to-say"> Prefer not to say</label>
+          </fieldset>
+
+          <fieldset class="registration-options">
+            <legend>Hobbies <span class="optional-label">(optional)</span></legend>
+            <label><input type="checkbox" name="hobbies" value="yoga"> Yoga</label>
+            <label><input type="checkbox" name="hobbies" value="running"> Running</label>
+            <label><input type="checkbox" name="hobbies" value="strength"> Strength training</label>
+          </fieldset>
+
+          <div class="registration-actions">
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-secondary" type="reset">Reset</button>
+          </div>
+          <p id="registration-status" class="registration-status" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -196,5 +264,6 @@
   <p class="site-footer__copy">&copy; MT-2506 </p>
 </footer>
 
+  <script src="register.js" defer></script>
 </body>
 </html>
