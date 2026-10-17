@@ -144,22 +144,22 @@
           <div class="row g-3">
             <div class="col-md-6">
               <label for="contact-name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="contact-name" name="name" minlength="2" required autocomplete="name">
+              <input type="text" class="form-control" id="contact-name" name="name" minlength="2" required autocomplete="name" aria-describedby="contact-name-feedback">
               <div class="valid-feedback">Looks good!</div>
-              <div class="invalid-feedback">Please enter a name with at least 2 characters.</div>
+              <div id="contact-name-feedback" class="invalid-feedback">Please enter a name with at least 2 characters.</div>
             </div>
             <div class="col-md-6">
               <label for="contact-email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="contact-email" name="email" required autocomplete="email">
+              <input type="email" class="form-control" id="contact-email" name="email" required autocomplete="email" aria-describedby="contact-email-feedback">
               <div class="valid-feedback">Email looks good!</div>
-              <div class="invalid-feedback">Please enter a valid email address.</div>
+              <div id="contact-email-feedback" class="invalid-feedback">Please enter a valid email address.</div>
             </div>
             <div class="col-12">
               <label for="contact-message" class="form-label">Message</label>
-              <textarea class="form-control" id="contact-message" name="message" rows="5" minlength="10" maxlength="500" required aria-describedby="message-help"></textarea>
+              <textarea class="form-control" id="contact-message" name="message" rows="5" minlength="10" maxlength="500" required aria-describedby="message-help contact-message-feedback"></textarea>
               <div id="message-help" class="form-text">Enter 10–500 characters.</div>
               <div class="valid-feedback">Message looks good!</div>
-              <div class="invalid-feedback">Please enter a message between 10 and 500 characters.</div>
+              <div id="contact-message-feedback" class="invalid-feedback">Please enter a message between 10 and 500 characters.</div>
             </div>
           </div>
           <button class="btn btn-primary contact-submit" type="submit">Submit</button>

@@ -141,12 +141,6 @@ h2 {
   text-align: center;
 }
 
-.registration-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
 .registration-form .form-group {
   display: flex;
   flex-direction: column;
@@ -176,25 +170,14 @@ h2 {
   border-color: var(--primary-green);
 }
 
-.registration-form.was-validated input:invalid,
-.registration-form.was-validated select:invalid {
+.registration-form.was-validated .form-control:invalid,
+.registration-form.was-validated .form-select:invalid {
   border-color: #b02a37;
 }
 
-.registration-form.was-validated input:valid,
-.registration-form.was-validated select:valid {
+.registration-form.was-validated .form-control:valid,
+.registration-form.was-validated .form-select:valid {
   border-color: var(--primary-green);
-}
-
-.registration-error {
-  display: none;
-  color: #b02a37;
-  font-size: 0.875rem;
-}
-
-.registration-form.was-validated input:invalid ~ .registration-error,
-.registration-form.was-validated select:invalid ~ .registration-error {
-  display: block;
 }
 
 .registration-help,
@@ -255,8 +238,17 @@ h2 {
 }
 
 @media (max-width: 600px) {
+  .home-contact-section .row,
   .registration-grid {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    margin-inline: 0;
+  }
+
+  .home-contact-section .row > [class*="col-"],
+  .registration-grid > .form-group {
+    width: 100%;
+    max-width: 100%;
   }
 
   .registration-actions {
