@@ -8,6 +8,7 @@ Overview
 Contact Form (`index.html`): Uses HTML5 validation (`required`, `type="email"`, `minlength`, `maxlength`), Bootstrap 5 styling, and JavaScript submission handling.
 
 Registration Form (`services.html`): Includes custom JS password matching, country select, optional gender/hobbies, and a reset function.
+
 Forms & Validation Test Results
 
 | Test Case | Input Data | Expected Result | Actual Result | Screenshot (Invalid/Valid state) |
