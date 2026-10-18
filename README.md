@@ -3,14 +3,9 @@ Live site: https://fit-balance-omega.vercel.app/index.html
 
  Part 1 — Team website
 
-Contact form
-
-The contact form is on the Home page (`group project/index.html`). Labels are connected to unique input IDs. The browser enforces required values, a name of at least 2 characters, email format, and a message length of 10–500 characters. Bootstrap classes show feedback after submit. Successful submission only displays a demo message; no information is transmitted or stored.
-
-Registration form
-
-The registration form is at the bottom of Services (`group project/services.html`). It requires first and last names of at least 2 characters, a valid email, a password and confirmation of at least 8 characters, and a selected country. Gender and hobbies are optional. JavaScript compares the passwords; Submit displays a local demo message, and Reset clears values and validation feedback. There is no account creation or data storage.
-
+Overview
+Contact Form (`index.html`): Uses HTML5 validation (`required`, `type="email"`, `minlength`, `maxlength`), Bootstrap 5 styling, and JavaScript submission handling.
+Registration Form (`services.html`): Includes custom JS password matching, country select, optional gender/hobbies, and a reset function.
 Forms & Validation Test Results
 
 | Test Case | Input Data | Expected Result | Actual Result | Screenshot (Invalid/Valid state) |
