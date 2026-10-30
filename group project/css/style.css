@@ -1170,6 +1170,61 @@ textarea {
   display: none;
 }
 
+.category-filters {
+  margin-top: 1rem;
+  border: 0;
+}
+
+.category-filters legend {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.category-filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category-filter {
+  padding: 0.45rem 0.75rem;
+  color: var(--primary-green-dark);
+  background: var(--soft-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.category-filter:hover,
+.category-filter.is-selected {
+  color: var(--white);
+  background: var(--primary-green);
+  border-color: var(--primary-green);
+}
+
+.category-filter:focus-visible,
+.favorite-remove:focus-visible {
+  outline: 3px solid var(--accent-pink-deep);
+  outline-offset: 2px;
+}
+
+.field-error,
+.status-error {
+  color: #a3212d;
+  font-weight: 600;
+}
+
+.field-error {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+}
+
+.booking-form input[aria-invalid="true"],
+.booking-form select[aria-invalid="true"] {
+  border-color: #a3212d;
+}
+
 body.dark-theme {
   color: #edf4ee;
   background: linear-gradient(180deg, #202923 0%, #151b17 100%);

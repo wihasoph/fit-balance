@@ -1,105 +1,125 @@
-const welcomeName = document.getElementById("welcome-name");
-const welcomeButton = document.querySelector("#welcome-button");
-const welcomeMessage = document.getElementById("welcome-message");
+$(function () {
+  const $welcomeName = $("#welcome-name");
+  const $welcomeMessage = $("#welcome-message");
 
-if (welcomeName && welcomeButton && welcomeMessage) {
-  welcomeButton.addEventListener("click", () => {
-    const name = welcomeName.value.trim();
-    welcomeMessage.textContent = name
-      ? `Welcome to FitBalance, ${name}!`
-      : "Please enter your name first.";
+  $("#welcome-button").on("click", function () {
+    const name = $welcomeName.val().trim();
+    $welcomeMessage
+      .text(name ? `Welcome to FitBalance, ${name}!` : "Please enter your name first.")
+      .toggleClass("status-error", !name);
   });
-}
 
-const themeButton = document.querySelector("#theme-toggle");
-
-if (themeButton) {
-  themeButton.addEventListener("click", () => {
-    const isDark = document.body.classList.toggle("dark-theme");
-    themeButton.textContent = isDark ? "Switch to light theme" : "Switch to dark theme";
+  $("#theme-toggle").on("click", function () {
+    const isDark = $("body").toggleClass("dark-theme").hasClass("dark-theme");
+    $(this).text(isDark ? "Switch to light theme" : "Switch to dark theme");
   });
-}
 
-document.querySelectorAll(".faq-question").forEach((button) => {
-  button.addEventListener("click", () => {
-    const answer = document.getElementById(button.getAttribute("aria-controls"));
-    const isExpanded = button.getAttribute("aria-expanded") === "true";
+  $(".faq-question").on("click", function () {
+    const $button = $(this);
+    const $answer = $(`#${$button.attr("aria-controls")}`);
+    const isExpanded = $button.attr("aria-expanded") === "true";
 
-    answer.hidden = isExpanded;
-    button.setAttribute("aria-expanded", String(!isExpanded));
+    $button.attr("aria-expanded", String(!isExpanded));
+    $answer.stop(true, true);
+
+    if (isExpanded) {
+      $answer.slideUp(180, function () {
+        $answer.attr("hidden", "hidden");
+      });
+    } else {
+      $answer.removeAttr("hidden").hide().slideDown(180);
+    }
   });
-});
 
-const programSearch = document.querySelector("#program-search-input");
+  const $search = $("#program-search-input");
+  const $cards = $(".catalog__grid .card");
+  const $resultCount = $("#program-search-count");
+  const $noResults = $("#program-search-empty");
+  let selectedCategory = "all";
 
-if (programSearch) {
-  const programCards = document.querySelectorAll(".catalog__grid .card");
-  const resultCount = document.querySelector("#program-search-count");
-  const noResults = document.querySelector("#program-search-empty");
-
-  const filterPrograms = () => {
-    const query = programSearch.value.trim().toLowerCase();
+  function filterPrograms() {
+    const query = ($search.val() || "").trim().toLowerCase();
     let visibleCount = 0;
 
-    programCards.forEach((card) => {
-      const title = card.querySelector("h2").textContent.toLowerCase();
-      const matches = title.includes(query);
-      card.hidden = !matches;
+    $cards.each(function () {
+      const $card = $(this);
+      const title = $card.find("h2").text().toLowerCase();
+      const categoryMatches = selectedCategory === "all" ||
+        $card.attr("data-category") === selectedCategory;
+      const matches = categoryMatches && title.includes(query);
 
-      if (matches) {
-        visibleCount += 1;
-      }
+      $card.prop("hidden", !matches);
+      visibleCount += matches ? 1 : 0;
     });
 
-    resultCount.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? "program" : "programs"}`;
-    noResults.hidden = visibleCount !== 0;
-  };
+    $resultCount.text(`Showing ${visibleCount} ${visibleCount === 1 ? "program" : "programs"}`);
+    $noResults.prop("hidden", visibleCount > 0);
+  }
 
-  programSearch.addEventListener("input", filterPrograms);
-}
+  $search.on("input", filterPrograms);
 
-const favoriteForm = document.querySelector("#favorite-form");
+  $(".category-filter").on("click", function () {
+    const $selected = $(this);
+    selectedCategory = $selected.attr("data-category");
+    $(".category-filter")
+      .removeClass("is-selected")
+      .attr("aria-pressed", "false");
+    $selected.addClass("is-selected").attr("aria-pressed", "true");
+    filterPrograms();
+  });
 
-if (favoriteForm) {
-  const favoriteInput = document.querySelector("#favorite-input");
-  const favoriteList = document.querySelector("#favorite-list");
-  const favoriteCount = document.querySelector("#favorite-count");
-  const favoriteMessage = document.querySelector("#favorite-message");
+  const $favoriteForm = $("#favorite-form");
+  const $favoriteList = $("#favorite-list");
+  const $favoriteInput = $("#favorite-input");
+  const $favoriteCount = $("#favorite-count");
+  const $favoriteMessage = $("#favorite-message");
+  const $favoriteEmpty = $("#favorite-empty");
 
-  const updateFavoriteCount = () => {
-    const count = favoriteList.querySelectorAll("li").length;
-    favoriteCount.textContent = `Favorites: ${count}`;
-  };
+  function updateFavorites() {
+    const count = $favoriteList.children("li").length;
+    $favoriteCount.text(`Favorites: ${count}`);
+    $favoriteEmpty.prop("hidden", count > 0);
+  }
 
-  favoriteForm.addEventListener("submit", (event) => {
+  $favoriteForm.on("submit", function (event) {
     event.preventDefault();
-    const activity = favoriteInput.value.trim();
+    const activity = $favoriteInput.val().trim();
 
     if (!activity) {
-      favoriteMessage.textContent = "Enter an activity before adding it.";
-      favoriteInput.focus();
+      $favoriteMessage
+        .stop(true, true)
+        .text("Enter an activity before adding it.")
+        .addClass("status-error")
+        .show();
+      $favoriteInput.trigger("focus");
       return;
     }
 
-    const item = document.createElement("li");
-    const activityName = document.createElement("span");
-    const removeButton = document.createElement("button");
+    const $item = $("<li>");
+    $("<span>").text(activity).appendTo($item);
+    $("<button>", {
+      type: "button",
+      class: "favorite-remove",
+      text: "Remove",
+      "aria-label": `Remove ${activity} from favorites`,
+    }).appendTo($item);
+    $favoriteList.append($item);
 
-    activityName.textContent = activity;
-    removeButton.type = "button";
-    removeButton.className = "favorite-remove";
-    removeButton.textContent = "Remove";
-    removeButton.setAttribute("aria-label", `Remove ${activity} from favorites`);
-    removeButton.addEventListener("click", () => {
-      item.remove();
-      updateFavoriteCount();
-    });
-
-    item.append(activityName, removeButton);
-    favoriteList.append(item);
-    favoriteInput.value = "";
-    favoriteMessage.textContent = "";
-    updateFavoriteCount();
-    favoriteInput.focus();
+    $favoriteInput.val("").trigger("focus");
+    updateFavorites();
+    $favoriteMessage
+      .stop(true, true)
+      .removeClass("status-error")
+      .text(`${activity} added to favorites.`)
+      .fadeIn(180)
+      .delay(1600)
+      .fadeOut(250);
   });
-}
+
+  $favoriteList.on("click", ".favorite-remove", function () {
+    $(this).closest("li").remove();
+    updateFavorites();
+  });
+
+  updateFavorites();
+});

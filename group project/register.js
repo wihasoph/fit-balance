@@ -1,41 +1,50 @@
-const registrationForm = document.querySelector("#registration-form");
+$(function () {
+  const $form = $("#registration-form");
 
-if (registrationForm) {
-  const password = registrationForm.querySelector("#password");
-  const confirmPassword = registrationForm.querySelector("#confirm-password");
-  const status = registrationForm.querySelector("#registration-status");
+  if (!$form.length) {
+    return;
+  }
 
-  const validatePasswordMatch = () => {
-    confirmPassword.setCustomValidity(
-      confirmPassword.value && confirmPassword.value !== password.value
+  const $password = $("#password");
+  const $confirmPassword = $("#confirm-password");
+  const $status = $("#registration-status");
+
+  function validateFields() {
+    $("#first-name, #last-name").each(function () {
+      const value = $(this).val().trim();
+      this.setCustomValidity(value.length < 2 ? "Enter at least 2 characters." : "");
+    });
+
+    $confirmPassword[0].setCustomValidity(
+      $confirmPassword.val() && $confirmPassword.val() !== $password.val()
         ? "Passwords do not match."
         : "",
     );
-  };
+  }
 
-  password.addEventListener("input", validatePasswordMatch);
-  confirmPassword.addEventListener("input", validatePasswordMatch);
+  $form.on("input change", "input, select", validateFields);
 
-  registrationForm.addEventListener("submit", (event) => {
+  $form.on("submit", function (event) {
     event.preventDefault();
-    validatePasswordMatch();
-    registrationForm.classList.add("was-validated");
-    status.hidden = true;
-    status.textContent = "";
+    validateFields();
+    $form.addClass("was-validated");
+    $status.prop("hidden", true).text("");
 
-    if (!registrationForm.checkValidity()) {
-      registrationForm.querySelector(":invalid")?.focus();
+    if (!$form[0].checkValidity()) {
+      $form.find(":invalid").first().trigger("focus");
       return;
     }
 
-    status.textContent = "Registration details are valid. This demo does not send or store information.";
-    status.hidden = false;
+    $status
+      .text("Registration details are valid. This demo does not send or store information.")
+      .prop("hidden", false);
   });
 
-  registrationForm.addEventListener("reset", () => {
-    confirmPassword.setCustomValidity("");
-    registrationForm.classList.remove("was-validated");
-    status.hidden = true;
-    status.textContent = "";
+  $form.on("reset", function () {
+    window.setTimeout(function () {
+      $confirmPassword[0].setCustomValidity("");
+      $form.removeClass("was-validated");
+      $status.prop("hidden", true).text("");
+    });
   });
-}
+});

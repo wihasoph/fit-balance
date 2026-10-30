@@ -1,15 +1,76 @@
- FitBalance
+ # FitBalance
 Live site: https://fit-balance-omega.vercel.app/index.html
 
- Part 1 — Team website
+The local changes in this repository still need to be redeployed before the live link represents this version.
 
-Overview
+## Team
 
-Contact Form (`index.html`): Uses HTML5 validation (`required`, `type="email"`, `minlength`, `maxlength`), Bootstrap 5 styling, and JavaScript submission handling.
+Akbope Altynbekova, Sofiya Mishanova, Dayankhan Amanzhol, Aruzhan Kakimzhanova
 
-Registration Form (`services.html`): Includes custom JS password matching, country select, optional gender/hobbies, and a reset function.
+Group: [Add group number]
 
-Forms & Validation Test Results
+## Website and local launch
+
+FitBalance is a fitness and wellness studio website featuring six training programs, coach information, a weekly schedule, a studio gallery, and demonstration-only contact and registration forms.
+
+To run locally, download or clone this repository, open the `group project` folder, and open `index.html` in a browser. The project uses jQuery 3.7.1 from the jQuery CDN and Bootstrap CSS from jsDelivr; an internet connection is needed for those external assets.
+
+## Project structure
+
+| Path | Purpose |
+| --- | --- |
+| `group project/index.html` | Home page and contact form |
+| `group project/services.html` | Program catalogue, category/search filters, and registration |
+| `group project/about.html` | Studio and coach information, welcome/theme controls, favourites, and FAQs |
+| `group project/contact.html` | Studio gallery, contact details, trial booking form, and FAQs |
+| `group project/css/` | Shared and responsive styles |
+| `group project/images/` | Website photos and coach images |
+| `group project/team-interactions.js` | jQuery welcome, theme, FAQ, catalogue filtering, and favourites |
+| `group project/contact.js` | jQuery contact and booking form validation |
+| `group project/register.js` | jQuery registration and password validation |
+| `screenshots/` | Form and responsive-layout evidence |
+
+## jQuery feature map
+
+| Feature | Page | Main jQuery methods |
+| --- | --- | --- |
+| Personal welcome and theme toggle | `about.html` | `.on()`, `.val()`, `.text()`, `.toggleClass()` |
+| FAQ accordion animation | `about.html` | `.on()`, `.stop()`, `.slideUp()`, `.slideDown()`, `.attr()` |
+| Program search and category filtering | `services.html` | `.on()`, `.val()`, `.text()`, `.prop()`, `.addClass()`, `.removeClass()` |
+| Add/remove favourite activities | `about.html` | `.on()` delegated handler, `.text()`, `.append()`, `.remove()`, `.fadeIn()`, `.fadeOut()` |
+| Contact, booking, and registration validation | `index.html`, `contact.html`, `services.html` | `.on()`, `.val()`, `.text()`, `.prop()`, `.addClass()` |
+
+All form confirmations are frontend demonstrations. The project does not send or store submitted information.
+
+## Team contribution summary
+
+For the report and defence, each member should describe the specific pages, code, tests, and integration work they personally completed. The repository history should be used to support individual contribution claims; do not attribute shared or externally assisted code to a member unless they actually implemented or verified it.
+
+## Test evidence
+
+The following checks were run against the local pages in the integrated Chromium browser on 2026-10-29. Form events were submitted in-browser; they were not sent to a backend. The checks verify frontend behaviour but do not replace the required second-browser test or report screenshots.
+
+| # | Test | Expected result | Actual result | Status |
+| --- | --- | --- | --- | --- |
+| 1 | About: submit the welcome control with an empty name | A clear prompt appears instead of a personalised greeting | “Please enter your name first.” appeared | Pass |
+| 2 | About: toggle the theme twice | Dark theme and matching button label switch on, then return to the original state | Both state and label changed and were restored | Pass |
+| 3 | About: use Enter on the first FAQ button twice | Answer opens and closes; `aria-expanded` stays in sync | Expanded changed from true back to false; answer was hidden after the animation | Pass |
+| 4 | Services: search for ` PILATES ` with category All | Search ignores case and surrounding spaces | Exactly one program matched | Pass |
+| 5 | Services: combine Pilates text with Mobility category, then choose All | Category and search are combined; All removes the category restriction | Combined filters returned 0; All restored the Pilates search result | Pass |
+| 6 | Services: search for a nonexistent program | Count becomes 0 and “No results found” appears | Count was 0 and the empty-results message was visible | Pass |
+| 7 | About: add then remove a favourite | Delegated remove works; count updates and the empty state returns | Count changed 0 → 1 → 0 and the empty message returned | Pass |
+| 8 | About: add text resembling an HTML element to favourites | User text is displayed as text, not interpreted as markup | Text was displayed without creating an image element | Pass |
+| 9 | Contact: submit the booking form empty | Field-specific required errors appear, focus moves to the first invalid field, and no success appears | Name, phone, and email errors appeared; focus moved to Full Name | Pass |
+| 10 | Contact: enter an invalid email with the other required fields filled | Email error appears; success remains hidden | Email error appeared and the form remained invalid | Pass |
+| 11 | Contact: submit valid booking details | A clear frontend-only demonstration confirmation appears | Confirmation appeared; no booking was sent or stored | Pass |
+| 12 | Services: submit registration empty, then with mismatched passwords | Invalid fields are identified; the form does not show success | Empty form focused First Name; mismatch focused Confirm Password; no success appeared | Pass |
+| 13 | Services: submit valid registration details | Demo confirmation appears only when all required values are valid | Valid registration showed the demo confirmation | Pass |
+| 14 | Home: submit the contact form empty and then with valid data | Invalid submission is blocked; valid input receives a demo confirmation | Empty form was invalid; valid input showed the confirmation | Pass |
+| 15 | Inspect Home, About, Services, and Contact at 375 px, 768 px, and 1440 px | No horizontal overflow | Document width matched each viewport on all four pages | Pass |
+
+The previous screenshots below document earlier form and layout checks. Capture updated screenshots of the jQuery interactions and final responsive layouts for the report, and run the website in a second browser before submission.
+
+### Previously recorded form and responsive screenshots
 
 | Test Case | Input Data | Expected Result | Actual Result | Screenshot (Invalid/Valid state) |
 | --- | --- | --- | --- | --- |

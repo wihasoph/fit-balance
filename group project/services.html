@@ -46,6 +46,18 @@
       <h2 id="program-search-title">Find a training program</h2>
       <label for="program-search-input">Search programs by name</label>
       <input id="program-search-input" class="form-control" type="search" placeholder="Try yoga, Pilates, or strength">
+      <fieldset class="category-filters">
+        <legend>Filter by category</legend>
+        <div class="category-filter-list">
+          <button class="category-filter is-selected" type="button" data-category="all" aria-pressed="true">All</button>
+          <button class="category-filter" type="button" data-category="yoga" aria-pressed="false">Yoga</button>
+          <button class="category-filter" type="button" data-category="mobility" aria-pressed="false">Mobility</button>
+          <button class="category-filter" type="button" data-category="pilates" aria-pressed="false">Pilates</button>
+          <button class="category-filter" type="button" data-category="strength" aria-pressed="false">Strength</button>
+          <button class="category-filter" type="button" data-category="personal-training" aria-pressed="false">Personal training</button>
+          <button class="category-filter" type="button" data-category="recovery" aria-pressed="false">Recovery</button>
+        </div>
+      </fieldset>
       <p id="program-search-count" class="interactive-status" aria-live="polite">Showing 6 programs</p>
       <p id="program-search-empty" class="interactive-status" role="status" hidden>No results found.</p>
     </section>
@@ -279,6 +291,7 @@
   <p class="site-footer__copy">&copy; MT-2506 </p>
 </footer>
 
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
   <script src="register.js" defer></script>
   <script src="team-interactions.js" defer></script>
 </body>

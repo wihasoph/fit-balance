@@ -150,22 +150,25 @@
                         Demo form only. Your information is not sent or stored.
                     </p>
 
-                    <form action="demo-result.html" method="get" class="booking-form">
+                    <form id="booking-form" class="booking-form" novalidate aria-describedby="demo-note">
                         
                         <div class="form-group">
                             <label for="fullname">Full Name</label>
-                            <input type="text" id="fullname" name="fullname" placeholder="Aruzhan Kakimzhanova" required>
+                            <input type="text" id="fullname" name="fullname" placeholder="Aruzhan Kakimzhanova" required minlength="2" aria-describedby="fullname-error">
+                            <p id="fullname-error" class="field-error" hidden>Enter your name using at least 2 characters.</p>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+7(707)123-45-67" required>
+                                <input type="tel" id="phone" name="phone" placeholder="+7(707)123-45-67" required aria-describedby="phone-error">
+                                <p id="phone-error" class="field-error" hidden>Enter a phone number.</p>
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="example@mail.com">
+                                <input type="email" id="email" name="email" placeholder="example@mail.com" required aria-describedby="email-error">
+                                <p id="email-error" class="field-error" hidden>Enter a valid email address.</p>
                             </div>
                         </div>
                        
@@ -193,16 +196,17 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="training-type">Preferred Format</label>
-                                <select id="training-type" name="training_type" required>
+                                <select id="training-type" name="training_type" required aria-describedby="training-type-error">
                                     <option value="" disabled selected>Select format</option>
                                     <option value="group">Group Class</option>
                                     <option value="personal">1-on-1 Personal Training</option>
                                     <option value="split">Split/Mini-Group</option>
                                 </select>
+                                <p id="training-type-error" class="field-error" hidden>Select a preferred format.</p>
                             </div>
                             <div class="form-group">
                                 <label for="program">Class/Activity Type</label>
-                                <select id="program" name="program" required>
+                                <select id="program" name="program" required aria-describedby="program-error">
                                     <option value="" disabled selected>Select activity</option>
                                     <option value="gym">Gym & Free Weights</option>
                                     <option value="outdoor">Outdoor Functional Workout</option>
@@ -210,6 +214,7 @@
                                     <option value="pilates">Pilates & Mobility</option>
                                     <option value="swimming">Swimming Pool & Aqua Gym</option>
                                 </select>
+                                <p id="program-error" class="field-error" hidden>Select an activity.</p>
                             </div>
                         </div>
                         <!--Trainer Choice-->
@@ -231,6 +236,7 @@
                         </div>
 
                         <button type="submit" class="btn-submit">Submit Registration</button>
+                        <p id="booking-form-status" class="form-submit-status" role="status" aria-live="polite" hidden></p>
                     </form>
                 </article>
             </div>
@@ -285,5 +291,7 @@
   <p class="site-footer__copy">&copy; MT-2506 </p>
 </footer>
 
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+  <script src="contact.js" defer></script>
 </body>
 </html>
